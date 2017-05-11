@@ -10,6 +10,7 @@
 # * size() returns the number of items in the queue.
 #   It needs no parameters and returns an integer.
 
+
 class AbstractQueue:
     def __init__(self):
         self.top = 0
@@ -25,6 +26,7 @@ class AbstractQueue:
         for element in self:
             result += str(element) + '\n'
         return result[:-1] + '\n------'
+
 
 class ArrayQueue(AbstractStack):
     def __init__(self, size=10):
@@ -57,7 +59,8 @@ class ArrayQueue(AbstractStack):
          expands size of the array.
          Time Complexity: O(n)
         """
-        new_array = [None] * len(self.array) * 2 # double the size of the array
+        new_array = [None] * len(self.array) * \
+            2  # double the size of the array
         for i, element in enumerate(self.array):
             new_array[i] = element
         self.array = new_array
@@ -70,10 +73,12 @@ class ArrayQueue(AbstractStack):
             yield self.array[probe]
             probe -= 1
 
+
 class QueueNode(object):
     def __init__(self, value):
         self.value = value
         self.next = None
+
 
 class LinkedListQueue(AbstractStack):
     def __init__(self):
@@ -108,6 +113,7 @@ class LinkedListQueue(AbstractStack):
                 raise StopIteration
             yield probe.value
             probe = probe.next
+
 
 class HeapPriorityQueue(AbstractStack):
     def __init__(self):

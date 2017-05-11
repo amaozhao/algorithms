@@ -1,3 +1,5 @@
+# coding: utf-8
+
 # Given a non-negative number represented as an array of digits,
 # plus one to the number.
 
@@ -13,7 +15,7 @@ def plusOne(digits):
     digits[-1] = digits[-1] + 1
     res = []
     ten = 0
-    i = len(digits)-1
+    i = len(digits) - 1
     while i >= 0 or ten == 1:
         sum = 0
         if i >= 0:
@@ -28,11 +30,11 @@ def plusOne(digits):
 
 def plus_one(digits):
     n = len(digits)
-    for i in range(n-1, -1, -1):
+    for i in range(n - 1, -1, -1):
         if digits[i] < 9:
             digits[i] += 1
             return digits
         digits[i] = 0
-    new_num = [0] * (n+1)
+    new_num = [0] * (n + 1)
     new_num[0] = 1
     return new_num

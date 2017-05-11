@@ -1,21 +1,25 @@
+# coding: utf-8
 """
-Given a collection of intervals, merge all overlapping intervals.
+给定一组区间的集合, 把各个区间中重叠的部分合并成一个区间.
 
-For example,
-Given [1,3],[2,6],[8,10],[15,18],
-return [1,6],[8,10],[15,18].
+例子,
+给定 [1,3],[2,6],[8,10],[15,18],
+返回 [1,6],[8,10],[15,18].
 """
 
-# Definition for an interval.
+
 class Interval(object):
+    """定义区间"""
+
     def __init__(self, s=0, e=0):
         self.start = s
         self.end = e
 
+
 def merge(intervals):
     """
-    :type intervals: List[Interval]
-    :rtype: List[Interval]
+    :type 区间: List[Interval]
+    :返回type: List[Interval]
     """
     out = []
     for i in sorted(intervals, key=lambda i: i.start):
@@ -25,16 +29,18 @@ def merge(intervals):
             out += i,
     return out
 
+
 def print_intervals(intervals):
     res = []
     for i in intervals:
-        res.append('['+str(i.start)+','+str(i.end)+']')
-    print("".join(res))
+        res.append('[' + str(i.start) + ',' + str(i.end) + ']')
+    print ("".join(res))
+
 
 if __name__ == "__main__":
-    given = [[1,3],[2,6],[8,10],[15,18]]
+    given = [[1, 3], [2, 6], [8, 10], [15, 18]]
     intervals = []
     for l, r in given:
-        intervals.append(Interval(l,r))
+        intervals.append(Interval(l, r))
     print_intervals(intervals)
     print_intervals(merge(intervals))

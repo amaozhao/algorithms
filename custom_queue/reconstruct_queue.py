@@ -15,6 +15,7 @@
 # Output:
 # [[5,0], [7,0], [5,2], [6,1], [4,4], [7,1]]
 
+
 def reconstruct_queue(people):
     """
     :type people: List[List[int]]
@@ -25,5 +26,3 @@ def reconstruct_queue(people):
     for h, k in people:
         queue.insert(k, (h, k))
     return queue
-
-

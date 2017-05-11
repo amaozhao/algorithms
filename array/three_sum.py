@@ -15,13 +15,13 @@ A solution set is:
 """
 
 
-def three_sum(nums:"List[int]")->"List[int]":
+def three_sum(nums: "List[int]") -> "List[int]":
     res = []
     nums.sort()
-    for i in range(len(nums)-2):
-        if i > 0 and nums[i] == nums[i-1]:
+    for i in range(len(nums) - 2):
+        if i > 0 and nums[i] == nums[i - 1]:
             continue
-        l, r = i+1, len(nums)-1
+        l, r = i + 1, len(nums) - 1
         while l < r:
             s = nums[i] + nums[l] + nums[r]
             if s > 0:
@@ -32,9 +32,9 @@ def three_sum(nums:"List[int]")->"List[int]":
                 # found three sum
                 res.append((nums[i], nums[l], nums[r]))
                 # remove duplicates
-                while l < r and nums[l] == nums[l+1]:
-                    l+=1
-                while l < r and nums[r] == nums[r-1]:
+                while l < r and nums[l] == nums[l + 1]:
+                    l += 1
+                while l < r and nums[r] == nums[r - 1]:
                     r -= 1
                 l += 1
                 r -= 1
@@ -42,5 +42,5 @@ def three_sum(nums:"List[int]")->"List[int]":
 
 
 if __name__ == "__main__":
-    x = [-1,0,1,2,-1,-4]
-    print(three_sum(x))
+    x = [-1, 0, 1, 2, -1, -4]
+    print (three_sum(x))

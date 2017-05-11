@@ -28,11 +28,13 @@ def garage(beg, end):
                 beg[final_pos], beg[empty] = beg[empty], beg[final_pos]
                 print(beg)
                 empty = beg.index(0)
-                beg[beg.index(car)], beg[empty] = beg[empty], beg[beg.index(car)]
+                beg[beg.index(car)], beg[empty] = beg[
+                    empty], beg[beg.index(car)]
                 print(beg)
                 moves += 2
             else:
-                beg[beg.index(car)], beg[empty] = beg[empty], beg[beg.index(car)]
+                beg[beg.index(car)], beg[empty] = beg[
+                    empty], beg[beg.index(car)]
                 print(beg)
                 moves += 1
         i += 1
@@ -41,8 +43,8 @@ def garage(beg, end):
     return moves
 
 if __name__ == "__main__":
-    initial = [1,2,3,0,4]
-    final = [0,3,2,1,4]
+    initial = [1, 2, 3, 0, 4]
+    final = [0, 3, 2, 1, 4]
     print("initial:", initial)
     print("final:", final)
     print(garage(initial, final))

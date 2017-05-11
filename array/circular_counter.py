@@ -1,25 +1,26 @@
-"""
-There are people sitting in a circular fashion,
-print every third member while removing them,
-the next counter starts immediately after the member is removed.
-Print till all the members are exhausted.
+# coding: utf-8
 
-For example:
-Input: consider 123456789 members sitting in a circular fashion,
-Output: 369485271
+"""人们围着圆桌坐了一圈, 每第三个成员打印它, 同时删除它, 下一个计数器在成员删除后立即开始.
+打印，直到所有成员都用尽.
+
+例子:
+输入: 考虑 123456789 成员坐成一桌,
+输出: 369485271
 """
 
-a = ['1','2','3','4','5','6','7','8','9']
+a = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+
 
 def josepheus(int_list, skip):
-  skip = skip - 1 #list starts with 0 index
-  idx = 0
-  while len(int_list)>0:
-    idx = (skip+idx)%len(int_list) #hashing to keep changing the index to every 3rd
-    print(int_list.pop(idx))
+    skip = skip - 1  # 列表计数从0开始
+    idx = 0
+    while len(int_list) > 0:
+        # 改变计数以满足每3个成员选择一个
+        idx = (skip + idx) % len(int_list)
+        print (int_list.pop(idx))
 
 
-josepheus(a,3)
+josepheus(a, 3)
 
 """
 the reason for hashing is that we have to find the index of the item which needs to be removed.
