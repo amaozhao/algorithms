@@ -16,31 +16,28 @@
 # 我们可以互换 0 和 1, 把它变成 [1, 3, 2, 0, 4].
 # 每次只可以换 0.
 
-def garage(beg, end):
+
+def garage(initial, final):
     i = 0
-    moves = 0
-    while beg != end:
-        if beg[i] != 0 and beg[i] != end[i]:
-            car = beg[i]
-            empty = beg.index(0)
-            final_pos = end.index(beg[i])
-            if empty != final_pos:
-                beg[final_pos], beg[empty] = beg[empty], beg[final_pos]
-                print(beg)
-                empty = beg.index(0)
-                beg[beg.index(car)], beg[empty] = beg[
-                    empty], beg[beg.index(car)]
-                print(beg)
-                moves += 2
+    steps = 0
+    while initial != final:
+        if initial[i] != 0 and initial[i] != final[i]:
+            zero = initial.index(0)
+            final_pos = final.index(initial[i])
+            if zero != final_pos:
+                # two swaps required
+                initial[final_pos], initial[zero] = initial[
+                    zero], initial[final_pos]
+                zero = initial.index(0)
+                initial[i], initial[zero] = initial[zero], initial[i]
+                steps += 2
             else:
-                beg[beg.index(car)], beg[empty] = beg[
-                    empty], beg[beg.index(car)]
-                print(beg)
-                moves += 1
-        i += 1
-        if i == len(beg):
-            i = 0
-    return moves
+                # one swap is enough
+                initial[i], initial[zero] = initial[zero], initial[i]
+                steps += 1
+        i = (i + 1) % len(initial)
+    return steps
+
 
 if __name__ == "__main__":
     initial = [1, 2, 3, 0, 4]
