@@ -9,10 +9,7 @@ def all_perms(elements):
 
 word = "abc"
 print(list(all_perms(word)))
-<<<<<<< HEAD
 
-=======
->>>>>>> upstream/master
 
 def anagram(s1, s2):
     c1 = [0] * 26
