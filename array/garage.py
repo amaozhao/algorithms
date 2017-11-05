@@ -17,8 +17,8 @@
 # 每次只可以换 0.
 
 
+
 def garage(initial, final):
-    i = 0
     steps = 0
     while initial != final:
         if initial[i] != 0 and initial[i] != final[i]:
