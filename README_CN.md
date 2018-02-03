@@ -23,7 +23,6 @@ python版数据结构和算法实现的简约版小示例
 - [backtrack：回溯](backtrack)
     - [general_solution.md：一般方法](backtrack/)
     - [anagram：同字母异序词](backtrack/anagram.py)
-    - [array_sum_combinations：数组和](backtrack/array_sum_combination.py)
     - [combination_sum：和的合并](backtrack/combination_sum.py)
     - [expression_add_operators：给表达式添加运算符](backtrack/expression_add_operators.py)
     - [factor_combinations：因素组合](backtrack/factor_combinations.py)
