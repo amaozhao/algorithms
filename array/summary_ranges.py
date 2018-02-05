@@ -1,8 +1,7 @@
 """
-Given a sorted integer array without duplicates,
-return the summary of its ranges.
+给定一个有序整型无重复元素的数组, 返回它的所有区间划分.
 
-For example, given [0,1,2,4,5,7], return ["0->2","4->5","7"].
+例如, 给定 [0,1,2,4,5,7], 返回 ["0->2","4->5","7"].
 """
 
 

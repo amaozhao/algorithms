@@ -34,11 +34,11 @@ def print_intervals(intervals):
     res = []
     for i in intervals:
         res.append('[' + str(i.start) + ',' + str(i.end) + ']')
-    print ("".join(res))
+    print("".join(res))
 
 
 def merge_intervals(l):
-    #sort
+    """排序"""
     if l is None:
         return None
     l.sort(key=lambda i: i[0])
@@ -50,11 +50,12 @@ def merge_intervals(l):
             out.append(i)
     return out
 
-if __name__ == "__main__":
+
+if __name__ == '__main__':
     given = [[1, 3], [2, 6], [8, 10], [15, 18]]
     intervals = []
     for l, r in given:
         intervals.append(Interval(l, r))
     print_intervals(intervals)
     print_intervals(merge(intervals))
-    print(merge_intervals[given])
+    print(merge_intervals(given))

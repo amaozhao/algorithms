@@ -1,15 +1,13 @@
 """
-Given an array of integers, return indices of the two numbers
-such that they add up to a specific target.
+给定一个整型数组, 返回这样2个元素的索引: 这2个元素相加的结果为给定的值.
 
-You may assume that each input would have exactly one solution,
-and you may not use the same element twice.
+你可以假定这个结果只有一种情况, 但是每个元素只能使用一次.
 
-Example:
-    Given nums = [2, 7, 11, 15], target = 9,
+例如:
+    给定 nums = [2, 7, 11, 15], target = 9,
 
-    Because nums[0] + nums[1] = 2 + 7 = 9,
-    return [0, 1].
+    因 nums[0] + nums[1] = 2 + 7 = 9,
+    返回 [0, 1].
 """
 
 

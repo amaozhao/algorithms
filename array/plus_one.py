@@ -5,7 +5,11 @@
 
 # The digits are stored such that the most significant
 # digit is at the head of the list.
+"""
+给定一个以数字数组表示的非负数, 再加上一个数字.
 
+数字被存储, 使得最有效的数字位于列表的头部.
+"""
 
 def plusOne(digits):
     """
@@ -40,8 +44,14 @@ def plus_one(digits):
 
 
 def plus_1(num_arr):
-    for idx, digit in reversed(list(enumerate(num_arr))):
+    for idx, _ in reversed(list(enumerate(num_arr))):
         num_arr[idx] = (num_arr[idx] + 1) % 10
         if num_arr[idx]:
             return num_arr
     return [1] + num_arr
+
+
+if __name__ == "__main__":
+    print(plusOne(list(range(1, 11))))
+    print(plus_one(list(range(1, 11))))
+    print(plus_1(list(range(1, 11))))

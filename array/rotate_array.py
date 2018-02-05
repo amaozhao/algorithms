@@ -1,18 +1,17 @@
 # coding: utf-8
 """
-Rotate an array of n elements to the right by k steps.
+轮换列表的最后 n 个元素(步长为 k).
 
-For example, with n = 7 and k = 3,
-the array [1,2,3,4,5,6,7] is rotated to [5,6,7,1,2,3,4].
+例如, n = 7 and k = 3,
+列表为 [1,2,3,4,5,6,7] 转换结果为 [5,6,7,1,2,3,4].
 
 Note:
-Try to come up as many solutions as you can,
-there are at least 3 different ways to solve this problem.
+有很多其他的方案, 这里列出3种.
 """
 
 
 #
-# Rotate the entire array 'k' times
+# 轮换整个列表 'k' 次
 # T(n)- O(nk)
 #
 def rotate_one_by_one(nums, k):
@@ -30,7 +29,7 @@ def rotate_one_by_one(nums, k):
 
 
 #
-# Reverse segments of the array, followed by the entire array
+# 颠倒部分列表元素, 然后拼接整个列表
 # T(n)- O(n)
 #
 def rotate(nums, k):
