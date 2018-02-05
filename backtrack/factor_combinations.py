@@ -34,9 +34,9 @@ output:
 ]
 """
 
-# Iterative:
 
 def getFactors(self, n):
+    """迭代"""
     todo, combis = [(n, 2, [])], []
     while todo:
         n, i, combi = todo.pop()
@@ -47,9 +47,9 @@ def getFactors(self, n):
             i += 1
     return combis
 
-# Recursive:
 
-def getFactors(self, n):
+def get_Factors(self, n):
+    """递归"""
     def factor(n, i, combi, combis):
         while i * i <= n:
             if n % i == 0:

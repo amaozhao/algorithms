@@ -2,14 +2,14 @@
 
 # Here's the way I've done it:
 
-def palindromic_substrings(s):
+def palindromicSubstrings(s):
     if not s:
         return [[]]
     results = []
     for i in range(len(s), 0, -1):
         sub = s[:i]
         if sub == sub[::-1]:
-            for rest in palindromic_substrings(s[i:]):
+            for rest in palindromicSubstrings(s[i:]):
                 results.append([sub] + rest)
     return results
 
@@ -18,12 +18,12 @@ def palindromic_substrings(s):
 
 # A slightly more Pythonic approach would be to make a recursive generator:
 
-def palindromic_substrings(s):
+def palindromic_Substrings(s):
     if not s:
         yield []
         return
     for i in range(len(s), 0, -1):
         sub = s[:i]
         if sub == sub[::-1]:
-            for rest in palindromic_substrings(s[i:]):
+            for rest in palindromicSubstrings(s[i:]):
                 yield [sub] + rest

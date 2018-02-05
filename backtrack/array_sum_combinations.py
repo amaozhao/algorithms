@@ -54,7 +54,7 @@ def backtrack(constructed_sofar):
     to_stop, reached_target = over(constructed_sofar)
     if to_stop:
         if reached_target:
-            print constructed_sofar
+            print(constructed_sofar)
         return
     candidates = construct_candidates(constructed_sofar)
     for candidate in candidates:
@@ -96,4 +96,4 @@ res = set()
 for s in sums:
     if s[0] is True and s[1] not in res:
         res.add(s[1])
-print (res)
+print(res)
