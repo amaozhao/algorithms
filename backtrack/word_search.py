@@ -1,7 +1,7 @@
 import unittest
 '''
-Given a matrix of words and a list of words to search, return a list of words that exists in the board
-This is Word Search II on LeetCode
+给定一个由字母组成的矩阵, 返回一个单词列表(这个列表的单词由矩阵中的字母构成).
+这是 LeetCode 上的单词搜索题目.
 
 board = [
          ['o','a','a','n'],
