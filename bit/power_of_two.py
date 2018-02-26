@@ -1,5 +1,5 @@
 """
-given an integer, write a function to determine if it is a power of two
+给定一个整数, 写一个函数判断是否这个数是否可以分解为2的n次方
 """
 
 

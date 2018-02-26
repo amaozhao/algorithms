@@ -1,10 +1,9 @@
 """
-Given an array of integers, every element appears
-twice except for one. Find that single one.
+给定一个整形数组, 每个元素出现两次的除外, 找出这个数字.
 
-Note:
-Your algorithm should have a linear runtime complexity.
-Could you implement it without using extra memory?
+注意:
+你的算法需要线性的时间复杂度.
+并不要使用额外的内存?
 """
 
 
@@ -17,3 +16,7 @@ def single_number(nums):
     for num in nums:
         i ^= num
     return i
+
+if __name__ == '__main__':
+    li = [2, 2, 3, 3, 3, 4, 5]
+    print(single_number(li))
