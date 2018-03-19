@@ -13,35 +13,52 @@
 # 最终的结果要求是:
 
 # [0,3,2,1,4].
-# 我们可以互换 0 和 1, 把它变成 [1, 3, 2, 0, 4].
-# 每次只可以换 0.
+# We can swap 1 with 0 in the initial array to get [0,2,3,1,4] and so on.
+# Each step swap with 0 only.
+# Edited by cyberking-saga
+"""
+Now also prints the sequence of changes in states.
+Output of this example :-
 
+initial: [1, 2, 3, 0, 4]
+final:   [0, 3, 2, 1, 4]
+Steps =  4
+Sequence : 
+0 2 3 1 4
+2 0 3 1 4
+2 3 0 1 4
+0 3 2 1 4
+
+"""
 
 
 def garage(initial, final):
+    initial = initial[::]     # create a copy to prevent changes in original 'initial'.
     steps = 0
+    seq = []                  # list of each step in sequence
     while initial != final:
-        if initial[i] != 0 and initial[i] != final[i]:
-            zero = initial.index(0)
-            final_pos = final.index(initial[i])
-            if zero != final_pos:
-                # two swaps required
-                initial[final_pos], initial[zero] = initial[
-                    zero], initial[final_pos]
-                zero = initial.index(0)
-                initial[i], initial[zero] = initial[zero], initial[i]
-                steps += 2
-            else:
-                # one swap is enough
-                initial[i], initial[zero] = initial[zero], initial[i]
-                steps += 1
-        i = (i + 1) % len(initial)
-    return steps
+        zero = initial.index(0)
+        if zero != final.index(0):
+            car_to_move = final[zero]
+            pos = initial.index(car_to_move)
+            initial[zero], initial[pos] = initial[pos], initial[zero]
+        else:
+            for i in range(len(initial)):
+                if initial[i] != final[i]:
+                    initial[zero], initial[i] = initial[i], initial[zero]
+                    break
+        seq.append(initial[::])
+        steps += 1
+    seq = "\n".join(" ".join(map(str, s)) for s in seq)   # convert to string
+    return steps, seq
 
 
 if __name__ == "__main__":
     initial = [1, 2, 3, 0, 4]
     final = [0, 3, 2, 1, 4]
     print("initial:", initial)
-    print("final:", final)
-    print(garage(initial, final))
+    print("final:  ", final)
+    steps, seq = garage(initial, final)
+    print("No. of Steps = ", steps)
+    print("Steps Sequence : ")
+    print(seq)

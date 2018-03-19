@@ -75,6 +75,8 @@ backtrack([])
 # 3. Keep on doing the above procedure while going through complete c array.
 
 
+import itertools
+from functools import partial
 A = [1, 2, 3, 3]
 B = [2, 3, 3, 4]
 C = [1, 2, 2, 2]
