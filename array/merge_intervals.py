@@ -2,6 +2,7 @@
 """
 Given a collection of intervals, merge all overlapping intervals.
 """
+import unittest
 
 
 class Interval:
@@ -78,7 +79,6 @@ def merge_v2(intervals):
             out.append(i)
     return out
 
-import unittest
 
 class TestMergeInterval(unittest.TestCase):
 
@@ -98,6 +98,7 @@ class TestMergeInterval(unittest.TestCase):
             merged_intervals,
             [[1, 6], [8, 10], [15, 18]]
         )
+
 
 if __name__ == "__main__":
     unittest.main()

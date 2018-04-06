@@ -1,14 +1,22 @@
 """
 给定一个整形数组, 每个元素出现两次的除外, 找出这个数字.
 
-注意:
-你的算法需要线性的时间复杂度.
-并不要使用额外的内存?
+NOTE: This also works for finding a number occurring odd
+      number of times, where all the other numbers appear
+      even number of times.
+
+Note:
+Your algorithm should have a linear runtime complexity.
+Could you implement it without using extra memory?
 """
+import unittest
+import random
 
 
 def single_number(nums):
     """
+    Returns single number, if found.
+    Else if all numbers appear twice, returns 0.
     :type nums: List[int]
     :rtype: int
     """
@@ -17,6 +25,24 @@ def single_number(nums):
         i ^= num
     return i
 
+
+class TestSuite(unittest.TestCase):
+
+    def test_single_number(self):
+
+        random.seed('test')
+
+        self.assertEqual(0, single_number([1, 0, 2, 1, 2, 3, 3]))
+        self.assertEqual(101, single_number([101]))
+
+        single = random.randint(1, 100000)
+        nums = [random.randint(1, 100000) for _ in range(1000)]
+        nums *= 2  # nums contains pairs of random integers
+        nums.append(single)
+        random.shuffle(nums)
+
+        self.assertEqual(single, single_number(nums))
+
+
 if __name__ == '__main__':
-    li = [2, 2, 3, 3, 3, 4, 5]
-    print(single_number(li))
+    unittest.main()

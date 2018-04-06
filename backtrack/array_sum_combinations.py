@@ -11,11 +11,8 @@ target = 7
 */
 
 Result:
-[
-    [1, 2, 4], [1, 3, 3], [1, 3, 3], [1, 3, 3],
-    [1, 3, 3], [1, 4, 2], [2, 2, 3], [2, 2, 3],
-    [2, 3, 2], [2, 3, 2], [3, 2, 2], [3, 2, 2]
-]
+[[1, 2, 4], [1, 3, 3], [1, 3, 3], [1, 3, 3], [1, 3, 3], [1, 4, 2],
+ [2, 2, 3], [2, 2, 3], [2, 3, 2], [2, 3, 2], [3, 2, 2], [3, 2, 2]]
 """
 import itertools
 from functools import partial
@@ -69,14 +66,11 @@ backtrack([])
 # Complexity: O(n(m+p))
 
 # 1. Sort all the arrays - a,b,c. - This will improve average time complexity.
-# 2. If c[i] < Sum, then look for Sum - c[i] in array a and b.
-# When pair found, insert c[i], a[j] & b[k] into the result list.
-# This can be done in O(n).
+# 2. If c[i] < Sum, then look for Sum - c[i] in array a and b. When pair found,
+#    insert c[i], a[j] & b[k] into the result list. This can be done in O(n).
 # 3. Keep on doing the above procedure while going through complete c array.
 
 
-import itertools
-from functools import partial
 A = [1, 2, 3, 3]
 B = [2, 3, 3, 4]
 C = [1, 2, 2, 2]

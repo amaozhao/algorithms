@@ -11,6 +11,7 @@
 # 注意结果必须为给定字符串的子串,
 # "pwke" 不是一个子串.
 """
+import unittest
 
 
 def longest_non_repeat(string):
@@ -48,7 +49,6 @@ def longest_non_repeat_two(string):
         used_char[char] = index
     return max_len
 
-import unittest
 
 class TestLongestNonRepeat(unittest.TestCase):
 
@@ -74,6 +74,7 @@ class TestLongestNonRepeat(unittest.TestCase):
         string = "pwwkew"
         self.assertEqual(longest_non_repeat_two(string), 3)
         
+
 if __name__ == "__main__":
     
     unittest.main()
