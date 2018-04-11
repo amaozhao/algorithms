@@ -13,7 +13,6 @@ A solution set is:
   (-1, -1, 2)
 }
 """
-import unittest
 
 
 def three_sum(array):
@@ -47,6 +46,7 @@ def three_sum(array):
                 l += 1
                 r -= 1
     return res
+<<<<<<< HEAD
 
 
 class TestSuite(unittest.TestCase):
@@ -62,3 +62,5 @@ class TestSuite(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+=======
+>>>>>>> upstream/master

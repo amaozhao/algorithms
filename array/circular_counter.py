@@ -7,7 +7,7 @@
 输入: 考虑 123456789 成员坐成一桌,
 输出: 369485271
 """
-
+import unittest
 
 def josepheus(int_list, skip):
     skip = skip - 1  # list starts with 0 index
@@ -18,7 +18,6 @@ def josepheus(int_list, skip):
         yield int_list.pop(idx)
         len_list -= 1
 
-import unittest
 
 class TestJosepheus(unittest.TestCase):
     def test_josepheues(self):

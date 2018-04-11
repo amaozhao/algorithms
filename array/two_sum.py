@@ -9,7 +9,6 @@
     因 nums[0] + nums[1] = 2 + 7 = 9,
     返回 [0, 1].
 """
-import unittest
 
 
 def two_sum(array, target):
@@ -20,6 +19,7 @@ def two_sum(array, target):
         else:
             dic[target - num] = i
     return None
+<<<<<<< HEAD
 
 
 class TestSuite(unittest.TestCase):
@@ -34,3 +34,5 @@ class TestSuite(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+=======
+>>>>>>> upstream/master
