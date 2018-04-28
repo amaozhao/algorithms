@@ -13,8 +13,20 @@ Thanks for your interest in contributing! There are many ways to contribute to t
 
 
 ## Tests
-To run the tests, clone the repo and run :  
- ```pytest```
+
+### Use unittest
+For running all tests write down:
+
+    $ python3 -m unittest discover tests
+
+For running some specific tests you can do this as following (Ex: sort):
+
+    $ python3 -m unittest tests.test_sort
+
+### Use pytest
+For running all tests write down:
+
+    $ python3 -m pytest tests
 
 ## List of Implementations
 
@@ -57,10 +69,17 @@ To run the tests, clone the repo and run :
     - [find_missing_number](bit/find_missing_number.py)
     - [power_of_two](bit/power_of_two.py)
     - [reverse_bits](bit/reverse_bits.py)
-    - [single_number2](bit/single_number2.py)
     - [single_number](bit/single_number.py)
+    - [single_number2](bit/single_number2.py)
+    - [single_number3](bit/single_number3.py)
     - [subsets](bit/subsets.py)
     - [add_bitwise_operator](bit/add_bitwise_operator.py)
+    - [bit_operation](bit/bit_operation.py)
+    - [swap_pair](bit/swap_pair.py)
+    - [find_difference](bit/find_difference.py)
+    - [has_alternative_bit](bit/has_alternative_bit.py)
+    - [insert_bit](bit/insert_bit.py)
+    - [remove_bit](bit/remove_bit.py)
 - [calculator](calculator)
     - [math_parser](calculator/math_parser.py)
 - [dfs](dfs)
@@ -121,6 +140,7 @@ To run the tests, clone the repo and run :
     - [remove_range](linkedlist/remove_range.py)
 - [map](map)
     - [hashtable](map/hashtable.py)
+    - [separate_chaining_hashtable](map/separate_chaining_hashtable.py)
     - [longest_common_subsequence](map/longest_common_subsequence.py)
     - [randomized_set](map/randomized_set.py)
     - [valid_sudoku](map/valid_sudoku.py)
@@ -193,6 +213,7 @@ To run the tests, clone the repo and run :
     - [remove_min](stack/remove_min.py)
     - [is_sorted](stack/is_sorted.py)
 - [strings](strings)
+    - [fizzbuzz](strings/fizzbuzz.py)
     - [delete_reoccurring_characters](strings/delete_reoccurring_characters.py)
     - [strip_url_params](strings/strip_url_params.py)
     - [validate_coordinates](strings/validate_coordinates.py)
