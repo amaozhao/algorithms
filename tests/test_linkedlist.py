@@ -1,18 +1,23 @@
-from linkedlist.reverse import reverse_list, reverse_list_recursive
-from linkedlist.is_sorted import is_sorted
-from linkedlist.remove_range import remove_range
-from linkedlist.swap_in_pairs import swap_pairs
-from linkedlist.rotate_list import rotate_right
-from linkedlist.is_cyclic import is_cyclic
-from linkedlist.merge_two_list import merge_two_list, merge_two_list_recur
-from linkedlist.is_palindrome import is_palindrome, is_palindrome_stack, is_palindrome_dict
-
 import unittest
+
+from algorithms.linkedlist import (
+    reverse_list, reverse_list_recursive,
+    is_sorted,
+    remove_range,
+    swap_pairs,
+    rotate_right,
+    is_cyclic,
+    merge_two_list, merge_two_list_recur,
+    is_palindrome, is_palindrome_stack, is_palindrome_dict,
+    RandomListNode, copy_random_pointer_v1, copy_random_pointer_v2
+)
+
 
 class Node(object):
     def __init__(self, x):
         self.val = x
         self.next = None
+
 
 # Convert from linked list Node to list for testing
 def convert(head):
@@ -23,6 +28,7 @@ def convert(head):
             ret.append(current.val)
             current = current.next
     return ret
+
 
 class TestSuite(unittest.TestCase):
     def setUp(self):
@@ -67,7 +73,6 @@ class TestSuite(unittest.TestCase):
         self.assertFalse(is_sorted(head))
 
     def test_remove_range(self):
-
         # Test case: middle case.
         head = Node(0)
         head.next = Node(1)
@@ -161,12 +166,50 @@ class TestSuite(unittest.TestCase):
     def test_is_palindrome(self):
         self.assertTrue(is_palindrome(self.l))
         self.assertFalse(is_palindrome(self.l1))
+
     def test_is_palindrome_stack(self):
         self.assertTrue(is_palindrome_stack(self.l))
         self.assertFalse(is_palindrome_stack(self.l1))
+
     def test_is_palindrome_dict(self):
         self.assertTrue(is_palindrome_dict(self.l))
         self.assertFalse(is_palindrome_dict(self.l1))
+
+    def test_solution_0(self):
+        self._init_random_list_nodes()
+        result = copy_random_pointer_v1(self.random_list_node1)
+        self._assert_is_a_copy(result)
+
+    def test_solution_1(self):
+        self._init_random_list_nodes()
+        result = copy_random_pointer_v2(self.random_list_node1)
+        self._assert_is_a_copy(result)
+
+    def _assert_is_a_copy(self, result):
+        self.assertEqual(5, result.next.next.next.next.label)
+        self.assertEqual(4, result.next.next.next.label)
+        self.assertEqual(3, result.next.next.label)
+        self.assertEqual(2, result.next.label)
+        self.assertEqual(1, result.label)
+        self.assertEqual(3, result.next.next.next.next.random.label)
+        self.assertIsNone(result.next.next.next.random)
+        self.assertEqual(2, result.next.next.random.label)
+        self.assertEqual(5, result.next.random.label)
+        self.assertEqual(4, result.random.label)
+
+    def _init_random_list_nodes(self):
+        self.random_list_node1 = RandomListNode(1)
+        random_list_node2 = RandomListNode(2)
+        random_list_node3 = RandomListNode(3)
+        random_list_node4 = RandomListNode(4)
+        random_list_node5 = RandomListNode(5)
+
+        self.random_list_node1.next, self.random_list_node1.random = random_list_node2, random_list_node4
+        random_list_node2.next, random_list_node2.random = random_list_node3, random_list_node5
+        random_list_node3.next, random_list_node3.random = random_list_node4, random_list_node2
+        random_list_node4.next = random_list_node5
+        random_list_node5.random = random_list_node3
+
 
 if __name__ == "__main__":
     unittest.main()

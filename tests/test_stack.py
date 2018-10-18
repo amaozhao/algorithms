@@ -1,12 +1,14 @@
-from stack.is_consecutive import first_is_consecutive, second_is_consecutive
-from stack.is_sorted import is_sorted
-from stack.remove_min import remove_min
-from stack.stutter import first_stutter, second_stutter
-from stack.switch_pairs import first_switch_pairs, second_switch_pairs
-from stack.valid_parenthesis import is_valid
-from stack.simplify_path import simplify_path
-from stack.stack import ArrayStack, LinkedListStack
-from stack.ordered_stack import OrderedStack
+from algorithms.stack import (
+    first_is_consecutive, second_is_consecutive,
+    is_sorted,
+    remove_min,
+    first_stutter, second_stutter,
+    first_switch_pairs, second_switch_pairs,
+    is_valid,
+    simplify_path,
+    ArrayStack, LinkedListStack,
+    OrderedStack
+)
 
 import unittest
 class TestSuite(unittest.TestCase):
@@ -23,6 +25,7 @@ class TestSuite(unittest.TestCase):
         # Test case: bottom [6, 3, 5, 1, 2, 4] top
         self.assertFalse(is_sorted([6, 3, 5, 1, 2, 4]))
         self.assertTrue(is_sorted([1, 2, 3, 4, 5, 6]))
+        self.assertFalse(is_sorted([3, 4, 7, 8, 5, 6]))
 
     def test_remove_min(self):
         # Test case: bottom [2, 8, 3, -6, 7, 3] top

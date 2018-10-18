@@ -1,27 +1,43 @@
-from strings.add_binary import add_binary
-from strings.breaking_bad import match_symbol, match_symbol_1, bracket
-from strings.decode_string import decode_string
-from strings.delete_reoccurring import delete_reoccurring_characters
-from strings.domain_extractor import domain_name_1, domain_name_2
-from strings.encode_decode import encode, decode
-from strings.group_anagrams import group_anagrams
-from strings.int_to_roman import int_to_roman
-from strings.is_palindrome import is_palindrome, is_palindrome_reverse, \
-is_palindrome_two_pointer, is_palindrome_stack
-from strings.is_rotated import is_rotated
-from strings.license_number import license_number
-from strings.make_sentence import make_sentence
-from strings.merge_string_checker import is_merge_recursive, is_merge_iterative
-from strings.multiply_strings import multiply
-from strings.one_edit_distance import is_one_edit, is_one_edit2
-from strings.rabin_karp import rabin_karp
-from strings.reverse_string import *
-from strings.reverse_vowel import reverse_vowel
-from strings.reverse_words import reverse_words
-from strings.roman_to_int import roman_to_int
-from strings.strip_url_params import *
-from strings.validate_coordinates import *
-from strings.word_squares import word_squares
+from algorithms.strings import (
+    add_binary,
+    match_symbol, match_symbol_1, bracket,
+    decode_string,
+    delete_reoccurring_characters,
+    domain_name_1, domain_name_2,
+    encode, decode,
+    group_anagrams,
+    int_to_roman,
+    is_palindrome, is_palindrome_reverse,
+    is_palindrome_two_pointer, is_palindrome_stack,
+    is_rotated, is_rotated_v1,
+    license_number,
+    make_sentence,
+    is_merge_recursive, is_merge_iterative,
+    multiply,
+    is_one_edit, is_one_edit2,
+    rabin_karp,
+    ultra_pythonic, iterative, recursive, pythonic,
+    reverse_vowel,
+    reverse_words,
+    roman_to_int,
+    strip_url_params1, strip_url_params2, strip_url_params3,
+    is_valid_coordinates_0, is_valid_coordinates_1,
+    is_valid_coordinates_regular_expression,
+    word_squares,
+    convert_morse_word, unique_morse,
+    judge_circle,
+    strong_password,
+    caesar_cipher,
+    contain_string,
+    count_binary_substring,
+    repeat_string,
+    text_justification,
+    min_distance,
+    longest_common_prefix_v1, longest_common_prefix_v2, longest_common_prefix_v3,
+    rotate,
+    first_unique_char,
+    repeat_substring
+)
 
 import unittest
 
@@ -52,10 +68,13 @@ class TestBreakingBad(unittest.TestCase):
         self.words = ['Amazon', 'Microsoft', 'Google']
         self.symbols = ['i', 'Am', 'cro', 'le', 'abc']
         self.result = ['M[i]crosoft', '[Am]azon', 'Mi[cro]soft', 'Goog[le]']
+
     def test_match_symbol(self):
-        self.assertEqual(self.result, match_symbol(self.words,self.symbols))
+        self.assertEqual(self.result, match_symbol(self.words, self.symbols))
+
     def test_match_symbol_1(self):
-        self.assertEqual(['[Am]azon', 'Mi[cro]soft', 'Goog[le]'], match_symbol_1(self.words,self.symbols))
+        self.assertEqual(['[Am]azon', 'Mi[cro]soft', 'Goog[le]'], match_symbol_1(self.words, self.symbols))
+
     def test_bracket(self):
         self.assertEqual(('[Am]azon', 'Mi[cro]soft', 'Goog[le]'), bracket(self.words, self.symbols))
 
@@ -95,6 +114,7 @@ class TestDomainExtractor(unittest.TestCase):
 
     def test_valid(self):
         self.assertEqual(domain_name_1("https://github.com/SaadBenn"), "github")
+
     def test_invalid(self):
         self.assertEqual(domain_name_2("http://google.com"), "google")
 
@@ -109,6 +129,7 @@ class TestEncodeDecode(unittest.TestCase):
 
     def test_encode(self):
         self.assertEqual("4:keon2:is7:awesome", encode("keon is awesome"))
+
     def test_decode(self):
         self.assertEqual(['keon', 'is', 'awesome'], decode("4:keon2:is7:awesome"))
 
@@ -123,7 +144,7 @@ class TestGroupAnagrams(unittest.TestCase):
 
     def test_group_anagrams(self):
         self.assertEqual([['eat', 'tea', 'ate'], ['tan', 'nat'], ['bat']], \
-        group_anagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
+                         group_anagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
 
 
 class TestIntToRoman(unittest.TestCase):
@@ -152,14 +173,17 @@ class TestIsPalindrome(unittest.TestCase):
         # 'Otto' is a old german name.
         self.assertTrue(is_palindrome("Otto"))
         self.assertFalse(is_palindrome("house"))
+
     def test_is_palindrome_reverse(self):
         # 'Otto' is a old german name.
         self.assertTrue(is_palindrome_reverse("Otto"))
         self.assertFalse(is_palindrome_reverse("house"))
+
     def test_is_palindrome_two_pointer(self):
         # 'Otto' is a old german name.
         self.assertTrue(is_palindrome_two_pointer("Otto"))
         self.assertFalse(is_palindrome_two_pointer("house"))
+
     def test_is_palindrome_stack(self):
         # 'Otto' is a old german name.
         self.assertTrue(is_palindrome_stack("Otto"))
@@ -180,6 +204,21 @@ class TestIsRotated(unittest.TestCase):
         self.assertFalse(is_rotated("hello", "helol"))
         self.assertFalse(is_rotated("hello", "lloh"))
         self.assertTrue(is_rotated("", ""))
+
+    def test_is_rotated_v1(self):
+        self.assertTrue(is_rotated_v1("hello", "hello"))
+        self.assertTrue(is_rotated_v1("hello", "llohe"))
+        self.assertFalse(is_rotated_v1("hello", "helol"))
+        self.assertFalse(is_rotated_v1("hello", "lloh"))
+        self.assertTrue(is_rotated_v1("", ""))
+
+
+class TestRotated(unittest.TestCase):
+    def test_rotate(self):
+        self.assertEqual("llohe", rotate("hello", 2))
+        self.assertEqual("hello", rotate("hello", 5))
+        self.assertEqual("elloh", rotate("hello", 6))
+        self.assertEqual("llohe", rotate("hello", 7))
 
 
 class TestLicenseNumber(unittest.TestCase):
@@ -222,6 +261,7 @@ class TestMergeStringChecker(unittest.TestCase):
 
     def test_is_merge_recursive(self):
         self.assertTrue(is_merge_recursive("codewars", "cdw", "oears"))
+
     def test_is_merge_iterative(self):
         self.assertTrue(is_merge_iterative("codewars", "cdw", "oears"))
 
@@ -253,6 +293,7 @@ class TestOneEditDistance(unittest.TestCase):
         self.assertTrue(is_one_edit("abc", "abd"))
         self.assertFalse(is_one_edit("abc", "aed"))
         self.assertFalse(is_one_edit("abcd", "abcd"))
+
     def test_is_one_edit2(self):
         self.assertTrue(is_one_edit2("abc", "abd"))
         self.assertFalse(is_one_edit2("abc", "aed"))
@@ -282,13 +323,16 @@ class TestReverseString(unittest.TestCase):
 
     def test_recursive(self):
         self.assertEqual("ereht olleh", recursive("hello there"))
+
     def test_iterative(self):
         self.assertEqual("ereht olleh", iterative("hello there"))
+
     def test_pythonic(self):
         self.assertEqual("ereht olleh", pythonic("hello there"))
+
     def test_ultra_pythonic(self):
         self.assertEqual("ereht olleh", ultra_pythonic("hello there"))
-    
+
 
 class TestReverseVowel(unittest.TestCase):
     """[summary]
@@ -312,7 +356,7 @@ class TestReverseWords(unittest.TestCase):
 
     def test_reverse_words(self):
         self.assertEqual("pizza like I and kim keon am I", \
-        reverse_words("I am keon kim and I like pizza"))
+                         reverse_words("I am keon kim and I like pizza"))
 
 
 class TestRomanToInt(unittest.TestCase):
@@ -357,11 +401,12 @@ class TestValidateCoordinates(unittest.TestCase):
     """
 
     def test_valid(self):
-        valid_coordinates = ["-23, 25","4, -3","90, 180","-90, -180"]
+        valid_coordinates = ["-23, 25", "4, -3", "90, 180", "-90, -180"]
         for coordinate in valid_coordinates:
             self.assertTrue(is_valid_coordinates_0(coordinate))
+
     def test_invalid(self):
-        invalid_coordinates = ["23.234, - 23.4234","99.234, 12.324","6.325624, 43.34345.345","0, 1,2","23.245, 1e1"]
+        invalid_coordinates = ["23.234, - 23.4234", "99.234, 12.324", "6.325624, 43.34345.345", "0, 1,2", "23.245, 1e1"]
         for coordinate in invalid_coordinates:
             self.assertFalse(is_valid_coordinates_0(coordinate))
 
@@ -376,7 +421,101 @@ class TestWordSquares(unittest.TestCase):
 
     def test_word_squares(self):
         self.assertEqual([['wall', 'area', 'lead', 'lady'], ['ball', 'area', 'lead', 'lady']], \
-        word_squares(["area","lead","wall","lady","ball"]))
+                         word_squares(["area", "lead", "wall", "lady", "ball"]))
+
+
+class TestUniqueMorse(unittest.TestCase):
+    def test_convert_morse_word(self):
+        self.assertEqual("--...-.", convert_morse_word("gin"))
+        self.assertEqual("--...--.", convert_morse_word("msg"))
+
+    def test_unique_morse(self):
+        self.assertEqual(2, unique_morse(["gin", "zen", "gig", "msg"]))
+
+
+class TestJudgeCircle(unittest.TestCase):
+    def test_judge_circle(self):
+        self.assertTrue(judge_circle("UDLRUD"))
+        self.assertFalse(judge_circle("LLRU"))
+
+
+class TestStrongPassword(unittest.TestCase):
+    def test_strong_password(self):
+        self.assertEqual(3, strong_password(3, "Ab1"))
+        self.assertEqual(1, strong_password(11, "#Algorithms"))
+
+
+class TestCaesarCipher(unittest.TestCase):
+    def test_caesar_cipher(self):
+        self.assertEqual("Lipps_Asvph!", caesar_cipher("Hello_World!", 4))
+        self.assertEqual("okffng-Qwvb", caesar_cipher("middle-Outz", 2))
+
+
+class TestContainString(unittest.TestCase):
+    def test_contain_string(self):
+        self.assertEqual(-1, contain_string("mississippi", "issipi"))
+        self.assertEqual(0, contain_string("Hello World", ""))
+        self.assertEqual(2, contain_string("hello", "ll"))
+
+
+class TestCountBinarySubstring(unittest.TestCase):
+    def test_count_binary_substring(self):
+        self.assertEqual(6, count_binary_substring("00110011"))
+        self.assertEqual(4, count_binary_substring("10101"))
+        self.assertEqual(3, count_binary_substring("00110"))
+
+
+class TestCountBinarySubstring(unittest.TestCase):
+    def test_repeat_string(self):
+        self.assertEqual(3, repeat_string("abcd", "cdabcdab"))
+        self.assertEqual(4, repeat_string("bb", "bbbbbbb"))
+
+
+class TestTextJustification(unittest.TestCase):
+    def test_text_justification(self):
+        self.assertEqual(["This    is    an",
+                          "example  of text",
+                          "justification.  "],
+
+                         text_justification(["This", "is", "an", "example", "of", "text", "justification."]
+                                            , 16)
+                         )
+
+        self.assertEqual(["What   must   be",
+                          "acknowledgment  ",
+                          "shall be        "],
+
+                         text_justification(["What", "must", "be", "acknowledgment", "shall", "be"]
+                                            , 16)
+                         )
+
+class TestMinDistance(unittest.TestCase):
+    def test_min_distance(self):
+        self.assertEqual(2, min_distance("sea", "eat"))
+        self.assertEqual(6, min_distance("abAlgocrithmf", "Algorithmmd"))
+
+class TestLongestCommonPrefix(unittest.TestCase):
+    def test_longest_common_prefix(self):
+        # Test first solution
+        self.assertEqual("fl", longest_common_prefix_v1(["flower","flow","flight"]))
+        self.assertEqual("", longest_common_prefix_v1(["dog","racecar","car"]))
+        # Test second solution
+        self.assertEqual("fl", longest_common_prefix_v2(["flower","flow","flight"]))
+        self.assertEqual("", longest_common_prefix_v2(["dog","racecar","car"]))
+        # Test third solution
+        self.assertEqual("fl", longest_common_prefix_v3(["flower","flow","flight"]))
+        self.assertEqual("", longest_common_prefix_v3(["dog","racecar","car"]))
+
+class TestFirstUniqueChar(unittest.TestCase):
+    def test_first_unique_char(self):
+        self.assertEqual(0, first_unique_char("leetcode"))
+        self.assertEqual(2, first_unique_char("loveleetcode"))
+
+class TestRepeatSubstring(unittest.TestCase):
+    def test_repeat_substring(self):
+        self.assertTrue(repeat_substring("abab"))
+        self.assertFalse(repeat_substring("aba"))
+        self.assertTrue(repeat_substring("abcabcabcabc"))
 
 
 if __name__ == "__main__":
